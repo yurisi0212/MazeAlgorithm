@@ -40,12 +40,12 @@ class MazeGenerator {
         if ($width % 2 === 0) $width++;
         if ($height % 2 === 0) $height++;
 
-        $this->setUp($width, $height);
+        $this->setup($width, $height);
         $this->dig(1, 1);
         $this->makeSideWall($width, $height);
     }
 
-    private function setUp(int $width, int $height) {
+    private function setup(int $width, int $height) {
         for ($z = 0; $z < $height; $z++) {
             for ($x = 0; $x < $width; $x++) {
                 for ($y = 0; $y < $this->y; $y++) {
