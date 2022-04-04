@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace space\yurisi\generator;
 
-interface Direction{
+interface Direction {
     public const Up = 0;
     public const Right = 1;
     public const Down = 2;

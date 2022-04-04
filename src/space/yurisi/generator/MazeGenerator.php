@@ -45,7 +45,7 @@ class MazeGenerator {
         $this->makeSideWall($width, $height);
     }
 
-    private function setUp(int $width, int $height){
+    private function setUp(int $width, int $height) {
         for ($z = 0; $z < $height; $z++) {
             for ($x = 0; $x < $width; $x++) {
                 for ($y = 0; $y < $this->y; $y++) {
@@ -82,20 +82,20 @@ class MazeGenerator {
 
             switch ($direction[mt_rand(0, count($direction) - 1)]) {
                 case Direction::Up:
-                    $this->setYPosition($x, --$z);
-                    $this->setYPosition($x, --$z);
+                    $this->setAir($x, --$z);
+                    $this->setAir($x, --$z);
                     break;
                 case Direction::Right:
-                    $this->setYPosition(++$x, $z);
-                    $this->setYPosition(++$x, $z);
+                    $this->setAir(++$x, $z);
+                    $this->setAir(++$x, $z);
                     break;
                 case Direction::Down:
-                    $this->setYPosition($x, ++$z);
-                    $this->setYPosition($x, ++$z);
+                    $this->setAir($x, ++$z);
+                    $this->setAir($x, ++$z);
                     break;
                 case Direction::Left:
-                    $this->setYPosition(--$x, $z);
-                    $this->setYPosition(--$x, $z);
+                    $this->setAir(--$x, $z);
+                    $this->setAir(--$x, $z);
                     break;
             }
         }
@@ -103,17 +103,13 @@ class MazeGenerator {
         if ($pos != null) $this->dig($pos->getFloorX(), $pos->getFloorZ());
     }
 
-    private function setYPosition(int $x, int $z){
+    private function setAir(int $x, int $z) {
         for ($y = 0; $y < $this->y; $y++) {
-            $this->setAir($x, $y, $z);
-        }
-    }
-
-    private function setAir(int $x, int $y, int $z) {
-        $this->level->setBlock($this->position->add($x, $y, $z), $this->road);
-        if ($x % 2 == 1 && $z % 2 == 1) {
-            if (!in_array(new Position($x, $this->y, $z, $this->level), $this->start)) {
-                $this->start[] = new Position($x, $this->y, $z, $this->level);
+            $this->level->setBlock($this->position->add($x, $y, $z), $this->road);
+            if ($x % 2 == 1 && $z % 2 == 1) {
+                if (!in_array(new Position($x, $this->y, $z, $this->level), $this->start)) {
+                    $this->start[] = new Position($x, $this->y, $z, $this->level);
+                }
             }
         }
     }
@@ -140,6 +136,4 @@ class MazeGenerator {
             }
         }
     }
-
-
 }
