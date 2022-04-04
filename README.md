@@ -5,7 +5,7 @@
 
 縦、横、高さが指定できます。
 
-<img src="https://github.com/yurisi0212/MazeAlgorithm/resources/image.jpg" width="400" alt="画像">
+<img src="https://raw.githubusercontent.com/yurisi0212/MazeAlgorithm/master/resources/image.jpg" width="400" alt="画像">
 
 ## コマンド
 
